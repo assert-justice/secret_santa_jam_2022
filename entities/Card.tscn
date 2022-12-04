@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/backs.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Card.cs" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 117, 135 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 117, 0, 117, 135 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 234, 0, 117, 135 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 351, 0, 117, 135 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 468, 0, 117, 135 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Card" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Back" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+
+[node name="TextContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -57.0
+margin_right = 44.0
+margin_bottom = 59.0
+
+[node name="Title" type="RichTextLabel" parent="TextContainer"]
+margin_right = 87.0
+margin_bottom = 15.0
+text = "Title"
+fit_content_height = true
+
+[node name="Text" type="RichTextLabel" parent="TextContainer"]
+margin_top = 19.0
+margin_right = 87.0
+margin_bottom = 34.0
+text = "Jump 10"
+fit_content_height = true
+
+[connection signal="gui_input" from="TextContainer" to="." method="_on_TextContainer_gui_input"]
