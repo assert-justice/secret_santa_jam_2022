@@ -2,11 +2,17 @@ using Godot;
 using System;
 
 public enum CardType
-	{
-		Jump,
-		Spin,
-		Kick
-	}
+{
+	Jump,
+	Spin,
+	Kick
+}
+public struct CardData
+{
+	string title;
+	float value;
+	string text;
+}
 public class Card : Node2D
 {
 	string _title = "Title";
