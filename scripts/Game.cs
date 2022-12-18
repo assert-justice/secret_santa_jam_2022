@@ -36,7 +36,8 @@ public class Game : Node
 		if(cardBase == null) return;
 		int idx = bases.IndexOf(cardBase);
 		basedCards[idx] = card;
-		card.Position = cardBase.Position;
+		// card.Position = cardBase.Position;
+		card.AnimateSpeed(cardBase.Position, 300f, 4.8f);
 	}
 
 	CardBase onCardBase(){

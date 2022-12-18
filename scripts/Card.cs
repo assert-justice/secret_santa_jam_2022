@@ -56,9 +56,24 @@ public class Card : Node2D
 		textLabel.AddText(" ");
 		textLabel.AddText(_value.ToString());
 	}
-	// public delegate void onClick(Card card);
 	public Action<Card> onClick;
-	// bool dragging = false;
+	Vector2 lastPos = new Vector2();
+	Vector2 nextPos = new Vector2();
+	float animClock = 0;
+	float animTime = 0;
+	float animCurve = 0;
+	public Action<Card> animComplete;
+	public void Animate(Vector2 nextPos, float time, float curve = 1.0f){
+		animTime = time;
+		animClock = time;
+		this.nextPos = nextPos;
+		lastPos = Position;
+		animCurve = curve;
+	}
+	public void AnimateSpeed(Vector2 nextPos, float speed, float curve = 1.0f){
+		float time = Position.DistanceTo(nextPos) / speed;
+		Animate(nextPos, time, curve);
+	}
 	public override void _Ready()
 	{
 		cardBack = GetChild(0) as AnimatedSprite;
@@ -66,20 +81,19 @@ public class Card : Node2D
 		titleLabel = textContainer.GetChild(0) as RichTextLabel;
 		textLabel = textContainer.GetChild(1) as RichTextLabel;
 	}
-	// public override void _Process(float delta)
-	// {
-	// 	if(dragging){
-	// 		var mousePos = GetViewport().GetMousePosition();
-	// 		this.Position = mousePos;
-	// 	}
-	// }
-	// private void _on_Card_input_event(object viewport, object @event, int shape_idx)
-	// {
-	// 	GD.Print("fttotott");
-	// }
+	public override void _Process(float delta)
+	{
+		if(animClock > 0){
+			animClock -= delta;
+			animClock = Math.Max(animClock, 0);
+			float weight = Mathf.Ease(1.0f - animClock / animTime, animCurve);
+			Position = lastPos.LinearInterpolate(nextPos, weight);
+			if(animClock == 0 && animComplete != null) animComplete(this);
+		}
+	}
 	private void _on_TextContainer_gui_input(object @event)
 	{
-		if(!clickable || onClick == null) return;
+		if(!clickable || onClick == null || animClock > 0) return;
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed){
 			if (mouseEvent.ButtonIndex == 1) this.onClick(this);
 		}
