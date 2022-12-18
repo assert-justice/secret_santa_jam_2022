@@ -8,10 +8,13 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="Button" type="Button" parent="."]
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -45.0
-margin_top = -20.0
-text = "Start!"
+margin_left = -100.0
+margin_top = -60.0
+margin_right = 100.0
+text = "Go!"
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]

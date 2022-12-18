@@ -42,6 +42,8 @@ public class Card : Node2D
 			SetCardLabels();
 		}
 	}
+	[Export]
+	public bool clickable = true;
 	AnimatedSprite cardBack;
 	RichTextLabel titleLabel;
 	RichTextLabel textLabel;
@@ -54,7 +56,9 @@ public class Card : Node2D
 		textLabel.AddText(" ");
 		textLabel.AddText(_value.ToString());
 	}
-	bool dragging = false;
+	// public delegate void onClick(Card card);
+	public Action<Card> onClick;
+	// bool dragging = false;
 	public override void _Ready()
 	{
 		cardBack = GetChild(0) as AnimatedSprite;
@@ -62,23 +66,22 @@ public class Card : Node2D
 		titleLabel = textContainer.GetChild(0) as RichTextLabel;
 		textLabel = textContainer.GetChild(1) as RichTextLabel;
 	}
-	public override void _Process(float delta)
-	{
-		if(dragging){
-			var mousePos = GetViewport().GetMousePosition();
-			this.Position = mousePos;
-		}
-	}
+	// public override void _Process(float delta)
+	// {
+	// 	if(dragging){
+	// 		var mousePos = GetViewport().GetMousePosition();
+	// 		this.Position = mousePos;
+	// 	}
+	// }
 	// private void _on_Card_input_event(object viewport, object @event, int shape_idx)
 	// {
 	// 	GD.Print("fttotott");
 	// }
 	private void _on_TextContainer_gui_input(object @event)
 	{
-		// Replace with function body.
-		// GD.Print("yo");
+		if(!clickable || onClick == null) return;
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed){
-			if (mouseEvent.ButtonIndex == 1) dragging = !dragging;
+			if (mouseEvent.ButtonIndex == 1) this.onClick(this);
 		}
 	}
 }

@@ -19,6 +19,7 @@ margin_left = -168.0
 margin_top = -122.0
 margin_right = 166.0
 margin_bottom = 130.0
+mouse_filter = 2
 
 [node name="MainMenu" type="VBoxContainer" parent="Control"]
 visible = false
