@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/nebula.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/Dancer.cs" type="Script" id=2]
+
+[node name="Dancer" type="Control"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = 194.0
+margin_right = 180.0
+margin_bottom = 258.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Panel"]
+position = Vector2( 90, -100 )
+scale = Vector2( 7.5, 7.5 )
+frames = ExtResource( 1 )
+frame = 2
+playing = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 69.0
+text = "Hero
+Health: 10/10"

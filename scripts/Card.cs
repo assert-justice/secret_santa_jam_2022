@@ -49,6 +49,7 @@ public class Card : Node2D
 	RichTextLabel textLabel;
 	void SetCardLabels(){
 		cardBack.Frame = (int) _type;
+		if(cardBack.Frame == 2) cardBack.Frame++;
 		titleLabel.Clear();
 		textLabel.Clear();
 		titleLabel.AddText(_title);
@@ -63,12 +64,14 @@ public class Card : Node2D
 	float animTime = 0;
 	float animCurve = 0;
 	public Action<Card> animComplete;
+	public Action<Card> animStart;
 	public void Animate(Vector2 nextPos, float time, float curve = 1.0f){
 		animTime = time;
 		animClock = time;
 		this.nextPos = nextPos;
 		lastPos = Position;
 		animCurve = curve;
+		animStart(this);
 	}
 	public void AnimateSpeed(Vector2 nextPos, float speed, float curve = 1.0f){
 		float time = Position.DistanceTo(nextPos) / speed;

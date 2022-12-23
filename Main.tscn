@@ -1,157 +1,272 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Main.cs" type="Script" id=1]
-[ext_resource path="res://Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tchaikovsky_-_Swan_Lake_Op.20_-_Act_I_Intro.ogg" type="AudioStream" id=2]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+missionIdx = 7
 
-[node name="Game" parent="." instance=ExtResource( 2 )]
+[node name="GameAnchor" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Control" type="Control" parent="."]
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Panel"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -168.0
-margin_top = -122.0
-margin_right = 166.0
-margin_bottom = 130.0
-mouse_filter = 2
-
-[node name="MainMenu" type="VBoxContainer" parent="Control"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -88.0
-margin_top = -51.0
-margin_right = 96.0
-margin_bottom = 126.0
-
-[node name="Panel" type="Panel" parent="Control/MainMenu"]
-margin_right = 184.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MainMenu/Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -53.5
-margin_top = -7.5
-margin_right = 53.5
-margin_bottom = 7.5
+margin_left = -57.5
+margin_top = 107.0
+margin_right = 58.5
+margin_bottom = 179.0
 text = "Battle Ballerinas"
-fit_content_height = true
 
-[node name="Start" type="Button" parent="Control/MainMenu"]
-margin_top = 4.0
-margin_right = 184.0
-margin_bottom = 24.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -716.0
+margin_top = 289.0
+margin_right = 702.0
+margin_bottom = 589.0
+text = "In the distant year of 1997 war is history. The teeming masses of humanity writhe and cavort under a soot stained sky. Nation states have fallen by the wayside replaced by the very megacorps that blackened the sky and boiled the oceans. Once the lives of workers were thrown away for the glory of tattered rags and vapid ideals. As Napoleon wrote \"The Last Argument of Kings\" on his cannons there is a new final weapon when politics fails. Now there is only one divider of weak and strong: 
+
+Dance Battles
+
+You are Nebula, a fierce battle dancer given a simple ultimatum: Defeat the six expert battle dancers of Olympus Mons, win the tournament of champions, and be reunited with your family in time for the solstice. The consequences of failure are dire..."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -305.0
+margin_right = 64.0
+
+[node name="Start" type="Button" parent="MainMenu/Panel/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
 text = "Start"
 
-[node name="Options" type="Button" parent="Control/MainMenu"]
-margin_top = 28.0
-margin_right = 184.0
-margin_bottom = 48.0
-text = "Options"
-
-[node name="Quit" type="Button" parent="Control/MainMenu"]
-margin_top = 52.0
-margin_right = 184.0
-margin_bottom = 72.0
+[node name="Quit" type="Button" parent="MainMenu/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 44.0
 text = "Quit"
 
-[node name="PauseMenu" type="VBoxContainer" parent="Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/Panel/VBoxContainer"]
+margin_top = 48.0
+margin_right = 127.0
+margin_bottom = 77.0
 
-[node name="Panel2" type="Panel" parent="Control/PauseMenu"]
-margin_top = -25.0
-margin_right = 334.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/PauseMenu/Panel2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.5
-margin_right = 20.0
-margin_bottom = 7.5
-text = "Pause"
-fit_content_height = true
-
-[node name="Resume" type="Button" parent="Control/PauseMenu"]
-margin_top = 4.0
-margin_right = 334.0
-margin_bottom = 24.0
-text = "Resume"
-
-[node name="Options" type="Button" parent="Control/PauseMenu"]
-margin_top = 28.0
-margin_right = 334.0
-margin_bottom = 48.0
-text = "Options"
-
-[node name="Quit" type="Button" parent="Control/PauseMenu"]
-margin_top = 52.0
-margin_right = 334.0
-margin_bottom = 72.0
-text = "Quit"
-
-[node name="OptionsMenu" type="VBoxContainer" parent="Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Panel4" type="Panel" parent="Control/OptionsMenu"]
-margin_right = 334.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/OptionsMenu/Panel4"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -26.5
-margin_top = -7.5
-margin_right = 26.5
-margin_bottom = 7.5
-text = "Options"
-fit_content_height = true
-
-[node name="Back" type="Button" parent="Control/OptionsMenu"]
-margin_top = 4.0
-margin_right = 334.0
-margin_bottom = 24.0
-text = "Back"
-
-[node name="MusicLabel" type="RichTextLabel" parent="Control/OptionsMenu"]
-margin_top = 28.0
-margin_right = 334.0
-margin_bottom = 43.0
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Panel/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 120.0
+margin_bottom = 22.0
 text = "Music Volume"
 fit_content_height = true
 
-[node name="MusicSlider" type="HSlider" parent="Control/OptionsMenu"]
-margin_top = 47.0
-margin_right = 334.0
-margin_bottom = 63.0
-value = 50.0
+[node name="HSlider" type="HSlider" parent="MainMenu/Panel/VBoxContainer"]
+margin_top = 81.0
+margin_right = 127.0
+margin_bottom = 97.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
-[node name="SfxLabel" type="RichTextLabel" parent="Control/OptionsMenu"]
-margin_top = 67.0
-margin_right = 334.0
-margin_bottom = 82.0
-text = "Sfx Volume"
-fit_content_height = true
+[node name="Victory" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="SfxSlider" type="HSlider" parent="Control/OptionsMenu"]
-margin_top = 86.0
-margin_right = 334.0
-margin_bottom = 102.0
-value = 50.0
+[node name="Panel" type="Panel" parent="Victory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -453.0
+margin_top = -540.0
+margin_right = 453.0
+margin_bottom = 540.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Victory/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -57.5
+margin_top = 107.0
+margin_right = 58.5
+margin_bottom = 179.0
+text = "Victory!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Victory/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -382.0
+margin_top = 289.0
+margin_right = 358.0
+margin_bottom = 589.0
+text = "In the distant year of 1997 war is history. "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Victory/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -305.0
+margin_right = 64.0
+
+[node name="Next" type="Button" parent="Victory/Panel/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+text = "Next Match"
+
+[node name="Retry" type="Button" parent="Victory/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 44.0
+text = "Retry"
+
+[node name="Quit" type="Button" parent="Victory/Panel/VBoxContainer"]
+margin_top = 48.0
+margin_right = 127.0
+margin_bottom = 68.0
+text = "Quit"
+
+[node name="Defeat" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="Defeat"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -453.0
+margin_top = -540.0
+margin_right = 453.0
+margin_bottom = 540.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Defeat/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -57.5
+margin_top = 107.0
+margin_right = 58.5
+margin_bottom = 179.0
+text = "Defeat!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Defeat/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -382.0
+margin_top = 289.0
+margin_right = 358.0
+margin_bottom = 589.0
+text = "You were vanquished! You are doomed to forever serve your corpocratic masters! You know, like all the rest of us...
+
+Fortunately you can try again."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Defeat/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -305.0
+margin_right = 64.0
+
+[node name="Retry" type="Button" parent="Defeat/Panel/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+text = "Retry"
+
+[node name="Quit" type="Button" parent="Defeat/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 44.0
+text = "Quit"
+
+[node name="Outro" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="Outro"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -453.0
+margin_top = -540.0
+margin_right = 453.0
+margin_bottom = 540.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Outro/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -57.5
+margin_top = 107.0
+margin_right = 58.5
+margin_bottom = 179.0
+text = "You Win!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Outro/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -382.0
+margin_top = 289.0
+margin_right = 358.0
+margin_bottom = 589.0
+text = "A winner is you!
+
+You are tearfully reunited with your family just in time for synthetic eggnog and roasting space chestnuts. Life is good.
+
+Thank you for playing <3"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Outro/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -305.0
+margin_right = 64.0
+
+[node name="Start" type="Button" parent="Outro/Panel/VBoxContainer"]
+margin_right = 127.0
+margin_bottom = 20.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Outro/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 44.0
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="button_down" from="MainMenu/Panel/VBoxContainer/Start" to="." method="_on_Start_button_down"]
+[connection signal="button_down" from="MainMenu/Panel/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="drag_ended" from="MainMenu/Panel/VBoxContainer/HSlider" to="." method="_on_HSlider_drag_ended"]
+[connection signal="button_down" from="Victory/Panel/VBoxContainer/Next" to="." method="_on_Next_button_down"]
+[connection signal="button_down" from="Victory/Panel/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="Victory/Panel/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="button_down" from="Defeat/Panel/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="Defeat/Panel/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="button_down" from="Outro/Panel/VBoxContainer/Start" to="." method="_on_Start_button_down"]
+[connection signal="button_down" from="Outro/Panel/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

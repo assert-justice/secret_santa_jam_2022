@@ -1,21 +1,66 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Game.cs" type="Script" id=1]
+[ext_resource path="res://entities/Dancer.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="."]
+[node name="Go" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = -30.0
+margin_top = 96.0
 margin_right = 100.0
-margin_bottom = 30.0
+margin_bottom = 184.0
 text = "Go!"
 
-[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[node name="Mulligan" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -908.0
+margin_top = 394.0
+margin_right = -700.0
+margin_bottom = 478.0
+text = "Mulligan x0"
+
+[node name="Dancer" parent="." instance=ExtResource( 2 )]
+margin_left = 327.0
+margin_top = 82.0
+margin_right = 327.0
+margin_bottom = 82.0
+
+[node name="Dancer2" parent="." instance=ExtResource( 2 )]
+margin_left = 1405.0
+margin_top = 80.0
+margin_right = 1405.0
+margin_bottom = 80.0
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 552.0
+margin_top = 137.0
+margin_right = 1375.0
+margin_bottom = 570.0
+text = "Drag 4 cards from your hand (on the bottom left) to the bases (on the middle left). 
+When you do you can press the \"Go!\" button to start the turn.
+
+Each turn is made of 4 rounds.
+During each round the cards are compared from the middle out. If you win a round the opponent takes a point of damage. If you lose the round you take a point of damage. If you tie no damage is applied.
+
+The cards represent dance moves. The following rules are completely obvious:
+Kick beats Jump
+Jump beats Spin
+Spin beats Kick
+
+If you're not happy with your hand you can use the Mulligan button to exchange the cards in your hand but not on bases! You only get 3 mulligans per bout.
+
+Good luck and on with the show!"
+
+[connection signal="button_down" from="Go" to="." method="_on_Button_button_down"]
+[connection signal="button_down" from="Mulligan" to="." method="_on_Mulligan_button_down"]

@@ -1,0 +1,9 @@
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\bin\ExportDebug\BattleBallerinas.dll
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\bin\ExportDebug\BattleBallerinas.pdb
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.csproj.AssemblyReference.cache
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.AssemblyInfoInputs.cache
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.AssemblyInfo.cs
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.csproj.CoreCompileInputs.cache
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.dll
+C:\Users\riley\Documents\secret_santa_jam_2022\.mono\temp\obj\ExportDebug\BattleBallerinas.pdb

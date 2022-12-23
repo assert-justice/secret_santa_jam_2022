@@ -55,6 +55,7 @@ margin_bottom = 59.0
 [node name="Title" type="RichTextLabel" parent="TextContainer"]
 margin_right = 87.0
 margin_bottom = 15.0
+mouse_filter = 2
 text = "Title"
 fit_content_height = true
 
@@ -62,6 +63,7 @@ fit_content_height = true
 margin_top = 19.0
 margin_right = 87.0
 margin_bottom = 34.0
+mouse_filter = 2
 text = "Jump 10"
 fit_content_height = true
 
